@@ -1,4 +1,4 @@
-## Udemy-ARAAWRANGRX
+## Udemy-ARAAWRANGRX1
 
 <!-- PROJECT SHIELDS -->
 
@@ -9,10 +9,10 @@
 ![CSS3][css3-shield]
 ![Sass][sass-shield]
 
-<p align="center">:bangbang: Project available to access at: https://nitaicharan.github.io/Udemy-ARAAWRANGRX :bangbang:</p>
+<p align="center">:bangbang: Project available to access at: https://nitaicharan.github.io/Udemy-ARAAWRANGRX1 :bangbang:</p>
 
-<!--[![](Udemy-ARAAWRANGRX.png)](https://nitaicharan.github.io/Udemy-ARAAWRANGRX/)-->
-<a href="https://nitaicharan.github.io/Udemy-ARAAWRANGRX">
+<!--[![](Udemy-ARAAWRANGRX1.png)](https://nitaicharan.github.io/Udemy-ARAAWRANGRX1/)-->
+<a href="https://nitaicharan.github.io/Udemy-ARAAWRANGRX1">
   <p align="center">
     <img style="height: 100px" src="PREVIEW.png">
   </p>
@@ -46,7 +46,7 @@ This certificate above verifies that [Nitai Charan][udemy-url] successfully comp
 ## Development GitHub Pages
 
 ```
-ng build --prod --base-href=/Udemy-ARAAWRANGRX/
+ng build --prod --base-href=/Udemy-ARAAWRANGRX1/
 
 git add -A
 git commit -m <titule> <message>

@@ -3,16 +3,20 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { UserComponent } from './user/user.component';
+import { StoreModule } from '@ngrx/store';
+import * as fromProduct from './product.reducer';
+import { EffectsModule } from '@ngrx/effects';
+import { ProductEffects } from './product.effects';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    UserComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    StoreModule.forFeature('product', fromProduct.reducer),
+    EffectsModule.forFeature([ProductEffects]),
   ],
   providers: [],
   bootstrap: [AppComponent]
