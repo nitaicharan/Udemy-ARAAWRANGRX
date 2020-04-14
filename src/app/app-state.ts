@@ -1,6 +1,12 @@
-import { State as ProductsState } from "./product.entity.reducer";
+import { Customer } from "./customers/customer";
 
+// the global state
 export interface AppState {
-  products: ProductsState;
-  customers: [];
+  customers: Entity<Customer>;
+}
+
+export interface Entity<T> {
+  loading: boolean;
+  data: T[];
+  error: any;
 }
