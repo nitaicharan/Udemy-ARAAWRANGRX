@@ -5,15 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { StoreModule } from '@ngrx/store';
-import { productsReducer } from './products.reducer';
-import { customersReducer } from './customers.reducer';
+import { productsReducer } from './product.reducer';
 
-const counterReducer = (state = 0, action) => {
-  switch (action.type) {
+import { FormsModule } from '@angular/forms';
+
+const counterReducer = (state, action) => {
+  switch(action.type) {
     case 'INCREMENT':
       return state + 1;
-    default:
-      return state;
   }
 }
 
@@ -24,12 +23,11 @@ const counterReducer = (state = 0, action) => {
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     StoreModule.forRoot({
       counter: counterReducer,
-      products: productsReducer,
-      customers: customersReducer
-    }),
-
+      products: productsReducer
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
