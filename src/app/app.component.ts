@@ -5,22 +5,20 @@ import { AppState } from './app-state';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'EffectHttp';
-  counter$;
-  /**
-   *
-   */
+  title = 'FirstEntityDemo';
+
   constructor(private store: Store<AppState>) {
-    this.counter$ = store.pipe(
-      select(state => state.counter)
-    );
+    this.store.pipe(
+      select(state => state.products)
+    )
+    .subscribe(data => console.log('products', data));
 
-  }
-
-  increment() {
-    this.store.dispatch({ type: 'INCREMENT' });
+    this.store.pipe(
+      select(state => state.customers)
+    )
+      .subscribe(data => console.log('customers', data));
   }
 }

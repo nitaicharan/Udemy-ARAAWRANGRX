@@ -1,10 +1,7 @@
-export interface AppState {
-  counter: number;
-  products: IData
-}
+import { State as ProductsState } from "./products.reducer";
 
-export interface IData {
-  loading: boolean,
-  data: Array<any>,
-  error: any
+export interface AppState {
+  counter;
+  products: ProductsState;
+  customers;
 }

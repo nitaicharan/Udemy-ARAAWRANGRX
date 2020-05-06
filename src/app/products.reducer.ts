@@ -1,19 +1,23 @@
-import { IData } from './app-state';
+import { EntityAdapter, createEntityAdapter, EntityState } from '@ngrx/entity';
 
-const initialState: IData = {
-  loading: false,
-  data: [],
-  error: void 0
-}
+import { Product } from './product';
 
-export function productsReducer(state = initialState, action): IData {
+export interface State extends EntityState<Product> { }
+
+export const adapter: EntityAdapter<Product> = createEntityAdapter<Product>({});
+
+export const initialState: State = adapter.getInitialState({});
+
+export function productsReducer(state = initialState, action) {
   switch (action.type) {
-    case "FETCH_PRODUCTS":
-      return { ...state, loading: true }
-    case "LOAD_PRODUCTS":
-      return { ...state, data: [...action.payload], loading: false }
-    case "FETCH_PRODUCTS_ERROR":
-      return { ...state, error: action.payload, loading: false }
+    case '[Products] add':
+      return adapter.addOne(action.payload, state);
+    case '[Products] remove':
+      return adapter.removeOne(action.payload.id, state);
+    case '[Products] load':
+      return adapter.addAll(action.payload, state);
+    case '[Products] update':
+      return adapter.updateOne(action.payload, state);
     default:
       return state;
   }
