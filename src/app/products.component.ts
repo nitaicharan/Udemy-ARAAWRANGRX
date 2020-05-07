@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { select, Store } from '@ngrx/store';
 import { AppState } from './app-state';
-import { Store, select } from '@ngrx/store';
-import { of, BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'products',
@@ -24,5 +23,9 @@ export class ProductsComponent implements OnInit {
 
   ngOnInit() {
     this.store.dispatch({ type: "FETCH_PRODUCTS" });
+  }
+
+  save() {
+    this.store.dispatch({ type: 'SAVE_PRODUCTS', payload: 'saving' });
   }
 }

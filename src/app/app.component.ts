@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { Store, select } from '@ngrx/store';
 import { AppState } from './app-state';
-import { TestBed } from '@angular/core/testing';
 
 @Component({
   selector: 'app-root',
