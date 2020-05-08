@@ -1,26 +1,12 @@
-import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { routerReducer, StoreRouterConnectingModule } from '@ngrx/router-store';
-import { ActionReducer, MetaReducer, StoreModule } from '@ngrx/store';
-import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { localStorageSync } from 'ngrx-store-localstorage';
+import { NgModule } from '@angular/core';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
-import { ProductDetailComponent } from './product-detail/product-detail.component';
-import { ProductsComponent } from './products/products.component';
-import { CustomSerializer } from './custom-route-serializer';
 
-
-
-
-export function localStorageSyncReducer(
-  reducer: ActionReducer<any>
-): ActionReducer<any> {
-  return localStorageSync({ keys: ['counter', 'router'] });
-}
-
-const metaReducers: Array<MetaReducer<any, any>> = [localStorageSyncReducer];
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+import { EffectService } from './effect.service';
 
 const counterReducer = (state = 0, action) => {
   switch (action.type) {
@@ -32,21 +18,12 @@ const counterReducer = (state = 0, action) => {
 };
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HomeComponent,
-    ProductDetailComponent,
-    ProductsComponent
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    StoreModule.forRoot({
-      counter: counterReducer,
-      router: routerReducer
-    }),
-    StoreDevtoolsModule.instrument({ maxAge: 20 }),
-    StoreRouterConnectingModule.forRoot({ serializer: CustomSerializer })
+    StoreModule.forRoot({ counter: counterReducer }),
+    EffectsModule.forRoot([EffectService])
   ],
   providers: [],
   bootstrap: [AppComponent]

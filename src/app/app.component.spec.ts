@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'RouterDebugDemo'`, () => {
+  it(`should have as title 'SideEffectFirstDemo'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('RouterDebugDemo');
+    expect(app.title).toEqual('SideEffectFirstDemo');
   });
 
   it('should render title in a h1 tag', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Welcome to RouterDebugDemo!');
+    expect(compiled.querySelector('h1').textContent).toContain('Welcome to SideEffectFirstDemo!');
   });
 });

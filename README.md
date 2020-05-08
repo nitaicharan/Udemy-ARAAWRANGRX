@@ -14,7 +14,7 @@
 <!--[![](Udemy-ARAAWRANGRX.png)](https://nitaicharan.github.io/Udemy-ARAAWRANGRX/)-->
 <a href="https://nitaicharan.github.io/Udemy-ARAAWRANGRX">
   <p align="center">
-    <img src="PREVIEW.png">
+    <img style="height: 100px" src="PREVIEW.png">
   </p>
 </a>
 
