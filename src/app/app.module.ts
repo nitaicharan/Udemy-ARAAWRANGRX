@@ -1,30 +1,56 @@
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-import { StoreModule } from '@ngrx/store';
+import { RouterModule } from '@angular/router';
+import { routerReducer, StoreRouterConnectingModule } from '@ngrx/router-store';
+import { ActionReducer, MetaReducer, StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { environment } from 'src/environments/environment';
+import { localStorageSync } from 'ngrx-store-localstorage';
+import { AboutComponent } from './about/about.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ProductModule } from './products/products.module';
+import { HomeComponent } from './home/home.component';
 
-const actionSanitizer = (action) => Object.assign({ ...action, payload: 'hiding the payload' })
-const stateSanitizer = (state, index) => Object.assign({ ...state, list: ['hiding the payload'] })
+export function localStorageSyncReducer(reducer: ActionReducer<any>): ActionReducer<any> {
+  return localStorageSync({ keys: ['counter', 'router'], rehydrate: true })(reducer)
+}
 
-const devInstrument = { maxAge: 20, name: 'my DEV instance' }
-const prodInstrument = { maxAge: 20, name: 'my PROD instance', actionSanitizer, stateSanitizer }
+const metaReducers: Array<MetaReducer<any, any>> = [localStorageSyncReducer];
+
+const counterReducer = (state = 0, action) => {
+  switch (action.type) {
+    case 'INCREMENT':
+      return state + 1;
+    default:
+      return state;
+  }
+}
+
+const routes = [{
+  path: 'home',
+  component: HomeComponent
+}, {
+  path: 'about',
+  component: AboutComponent
+}];
 
 @NgModule({
   declarations: [
     AppComponent,
+    HomeComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule,
-    ProductModule,
-    StoreModule.forRoot({}),
-    StoreDevtoolsModule.instrument(environment.production ? prodInstrument : devInstrument),
+    StoreModule.forRoot({
+      router: routerReducer,
+      counter: counterReducer,
+    }, { metaReducers }),
+    StoreDevtoolsModule.instrument({
+      maxAge: 5
+    }),
+    RouterModule.forRoot(routes, { enableTracing: false }),
+    StoreRouterConnectingModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
