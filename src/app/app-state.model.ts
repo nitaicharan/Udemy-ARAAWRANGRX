@@ -1,6 +1,6 @@
 import { Product } from './product.model';
 
 export interface AppState {
-    counter: number;
+    counter: Array<any>;
     products: Product[];
 }

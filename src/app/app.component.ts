@@ -3,6 +3,7 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { AppState } from './app-state.model';
 import { Product } from './product.model';
+import { ProductActionType } from './product.actions';
 
 @Component({
   selector: 'app-root',
@@ -18,16 +19,16 @@ export class AppComponent {
   constructor(
     private store: Store<AppState>
   ) {
-    this.products$ = this.store.select('products')
+    this.products$ = this.store.select((state) => state.products)
   }
 
-  save = () => this.store.dispatch({ type: 'ADD', payload: { name: this.newProduct, id: this.id++ } });
-  remove = (product: Product) => this.store.dispatch({ type: 'REMOVE', payload: product });
+  save = () => this.store.dispatch({ type: ProductActionType.Create, payload: { name: this.newProduct, id: this.id++ } });
+  remove = (product: Product) => this.store.dispatch({ type: ProductActionType.Delete, payload: product });
   select = (product) => this.selectedProduct = { ...product };
   update() {
     this.store.dispatch({
-      type: 'UPDATE',
-      payload: this.selectedProduct
+      type: ProductActionType.Update,
+      payload: this.selectedProduct,
     })
     this.selectedProduct = null;
   }
