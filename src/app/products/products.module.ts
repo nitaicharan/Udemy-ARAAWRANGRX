@@ -1,9 +1,9 @@
 import { NgModule } from "@angular/core";
-import { StoreModule, ActionReducerMap } from '@ngrx/store';
-import { BrowserModule } from '@angular/platform-browser';
-import { listReducer } from './product.reducer';
 import { FormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
+import { ActionReducerMap, StoreModule } from '@ngrx/store';
 import { ProductState } from './product-state.model';
+import { listReducer } from './product.reducer';
 import { ProductListComponent } from './products-list/products-list.component';
 
 const reducers: ActionReducerMap<ProductState> = {
@@ -15,7 +15,7 @@ const reducers: ActionReducerMap<ProductState> = {
   imports: [
     BrowserModule,
     FormsModule,
-    StoreModule.forFeature('products', reducers)
+    StoreModule.forFeature('products', reducers),
   ],
   providers: [],
   exports: [ProductListComponent]
