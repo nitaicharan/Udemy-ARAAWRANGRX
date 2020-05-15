@@ -1,0 +1,11 @@
+<div class="products">
+    <div>
+        <input [(ngModel)]="newProduct" placeholder="Enter product name" type="text" />
+        <button (click)="create()">Create</button>
+    </div>
+
+    <div class="product" *ngFor="let product of products$ | async">
+        {{product.name}}
+        <button (click)="delete(product)">Delete</button>
+    </div>
+</div>

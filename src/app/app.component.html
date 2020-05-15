@@ -1,17 +1,1 @@
-<div>
-    <h1>NGRX dispatch demo</h1>
-
-    <input [(ngModel)]="newProduct">
-    <button (click)="save()">Save</button>
-    <br>
-    <br>
-    <div *ngFor="let product of products$ | async">
-        {{product.name}}
-        <button (click)="select(product)">Select</button>
-        <button (click)="remove(product)">Delete</button>
-    </div>
-    <div *ngIf="selectedProduct">
-        <input [(ngModel)]="selectedProduct.name">
-        <button (click)="update()">Update</button>
-    </div>
-</div>
+<app-products-list></app-products-list>
