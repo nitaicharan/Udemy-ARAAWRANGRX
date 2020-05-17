@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { ProductsComponent } from './products/products.component';
+import { CustomSerializer } from './custom-route-serializer';
 
 
 
@@ -28,7 +29,7 @@ const counterReducer = (state = 0, action) => {
     default:
       return state;
   }
-}
+};
 
 @NgModule({
   declarations: [
@@ -45,7 +46,7 @@ const counterReducer = (state = 0, action) => {
       router: routerReducer
     }),
     StoreDevtoolsModule.instrument({ maxAge: 20 }),
-    StoreRouterConnectingModule.forRoot()
+    StoreRouterConnectingModule.forRoot({ serializer: CustomSerializer })
   ],
   providers: [],
   bootstrap: [AppComponent]
