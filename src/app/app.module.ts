@@ -5,16 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { StoreModule } from '@ngrx/store';
-import { productsReducer } from './product.reducer';
-
-import { FormsModule } from '@angular/forms';
-
-const counterReducer = (state, action) => {
-  switch(action.type) {
-    case 'INCREMENT':
-      return state + 1;
-  }
-}
+import { customerReducer } from './customer.reducer';
+import { productsReducer } from './product.entity.reducer';
 
 @NgModule({
   declarations: [
@@ -23,9 +15,8 @@ const counterReducer = (state, action) => {
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule,
     StoreModule.forRoot({
-      counter: counterReducer,
+      customers: customerReducer,
       products: productsReducer
     })
   ],

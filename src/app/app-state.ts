@@ -1,5 +1,6 @@
-import { State as ProductsState } from './product.reducer';
+import { State as ProductsState } from "./product.entity.reducer";
 
 export interface AppState {
-  products: ProductsState
+  products: ProductsState;
+  customers: [];
 }
