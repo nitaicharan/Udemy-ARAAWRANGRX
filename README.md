@@ -9,7 +9,7 @@
 ![CSS3][css3-shield]
 ![Sass][sass-shield]
 
-<p align="center">:bangbang: Project available to access at: https://nitaicharan.github.io/Udemy-ARAAWRANGRX1 :bangbang:</p>
+<!-- <p align="center">:bangbang: Project available to access at: https://nitaicharan.github.io/Udemy-ARAAWRANGRX1 :bangbang:</p> -->
 
 <!--[![](Udemy-ARAAWRANGRX1.png)](https://nitaicharan.github.io/Udemy-ARAAWRANGRX1/)-->
 <a href="https://nitaicharan.github.io/Udemy-ARAAWRANGRX1">
@@ -28,7 +28,7 @@ This project was part of the Udemy course "Architecting Reactive Angular Applica
 
 ### Certificate
 
-This certificate above verifies that [Nitai Charan][udemy-url] successfully completed the course [Bootstrap 4 From Scratch With 5 Projects][course-url] on ??/??/???? as taught by [Packt Publishing][instructor-url] on Udemy. The certificate indicates the entire course was completed as validated by the student.
+This certificate above verifies that [Nitai Charan][udemy-url] successfully completed the course [Architecting Reactive Angular Applications with Redux & NgRx][course-url] on 05/25/2020 as taught by [Packt Publishing][instructor-url] on Udemy. The certificate indicates the entire course was completed as validated by the student.
 
 <p align="center">
   <img src="CERTIFICATE.jpg">
@@ -65,7 +65,7 @@ git push origin `git subtree split --prefix dist/course master`:gh-pages --force
 
 [course-url]: https://udemy.com/course/architecting-reactive-angular-applications-with-redux-ngrx/
 [instructor-url]: https://udemy.com/user/packtpublishing/
-[certificate-url]: https://ude.my/
+[certificate-url]: https://ude.my/UC-354e4eaa-0809-4a86-b2f4-229dbd7e29c2
 
 <!-- CONTACT SHIELDS -->
 
